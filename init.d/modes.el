@@ -32,3 +32,8 @@
 (add-hook 'ruby-mode-hook 'flymake-ruby-load)
 ;; rever-mode
 (global-auto-revert-mode)
+;; rubocop-mode
+(add-hook 'ruby-mode-hook
+  (lambda ()
+   (local-set-key (kbd "C-c r") 'rubocop-format-current-file)))
+
