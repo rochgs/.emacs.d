@@ -1,5 +1,8 @@
 (setq inhibit-splash-screen t)
 (setq make-backup-files nil)
+(setq column-number-mode t)
+(setq initial-scratch-message nil)
+(setq-default indent-tabs-mode nil)
 ;; Indent-region-of-buffer
 (defun indent-buffer ()
   "Indent the currently visited buffer."

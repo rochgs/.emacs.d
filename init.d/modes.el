@@ -20,20 +20,35 @@
 (setq org-startup-truncated nil)
 ;; smartparents-mode
 (require 'smartparens-config)
-(add-hook 'ruby-mode-hook #'smartparens-mode)
+(add-hook 'enh-ruby-mode-hook #'smartparens-mode)
 ;; web-mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 ;; rbenv
 (require 'rbenv)
 (global-rbenv-mode)
 ;; flymake-ruby
 (require 'flymake-ruby)
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+(add-hook 'enh-ruby-mode-hook 'flymake-ruby-load)
 ;; rever-mode
 (global-auto-revert-mode)
 ;; rubocop-mode
-(add-hook 'ruby-mode-hook
+(add-hook 'enh-ruby-mode-hook
   (lambda ()
-   (local-set-key (kbd "C-c r") 'rubocop-format-current-file)))
-
+    (local-set-key (kbd "C-c r") 'rubocop-format-current-file))) 
+;; enh-ruby-mode
+(add-to-list 'auto-mode-alist
+  '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
+(setq enh-ruby-add-encoding-comment-on-save nil)
+(setq ruby-deep-indent-paren nil)
+;; yaml-mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-hook 'yaml-mode-hook
+  (lambda ()
+    (define-key yaml-mode-map "\C-m" 'newline-and-indent)))

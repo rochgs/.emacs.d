@@ -23,3 +23,4 @@
 (straight-use-package 'rubocop)
 (straight-use-package 'web-mode)
 (straight-use-package 'markdown-mode)
+(straight-use-package 'yaml-mode)
