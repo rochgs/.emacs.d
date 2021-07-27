@@ -52,3 +52,5 @@
 (add-hook 'yaml-mode-hook
   (lambda ()
     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+;; js.mode
+(setq js-indent-level 2)
