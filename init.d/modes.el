@@ -21,7 +21,8 @@
 (setq org-startup-truncated nil)
 ;; smartparents-mode
 (require 'smartparens-config)
-(add-hook 'enh-ruby-mode-hook #'smartparens-mode)
+(add-hook 'enh-ruby-mode-hook 'smartparens-mode)
+(add-hook 'org-mode-hook 'smartparens-mode)
 ;; web-mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
@@ -55,3 +56,10 @@
     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 ;; js.mode
 (setq js-indent-level 2)
+;; yafolding
+(add-hook 'prog-mode-hook
+          (lambda () (yafolding-mode)))
+;; https://github.com/zenozeng/yafolding.el/issues/13#issuecomment-234706053
+(lambda ()
+    (yafolding-show-all)
+    (delete-trailing-whitespace))
