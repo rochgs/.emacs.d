@@ -1,10 +1,11 @@
-(setq-default indent-tabs-mode nil)
-(setq-default fill-column 80)
 (setq inhibit-splash-screen t)
 (setq make-backup-files nil)
-(setq column-number-mode t)
 (setq initial-scratch-message nil)
 (setq confirm-kill-emacs 'yes-or-no-p)
+(setq-default column-number-mode t)
+(setq-default show-paren-mode 1)
+(setq-default indent-tabs-mode nil)
+(setq-default fill-column 80)
 ;; Indent-region-of-buffer
 (defun indent-buffer ()
   "Indent the currently visited buffer."
