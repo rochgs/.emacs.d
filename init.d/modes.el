@@ -65,5 +65,3 @@
 (lambda ()
     (yafolding-show-all)
     (delete-trailing-whitespace))
-;; mermaid-mode
-(add-to-list 'auto-mode-alist '("\\.mermaid\\'" . mermaid-mode))

@@ -26,4 +26,4 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yafolding)
 (straight-use-package 'csv-mode)
-(straight-use-package 'mermaid-mode)
+
