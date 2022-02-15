@@ -50,7 +50,8 @@
 (add-to-list 'auto-mode-alist
   '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
 (setq enh-ruby-add-encoding-comment-on-save nil)
-(setq ruby-deep-indent-paren nil)
+(setq enh-ruby-deep-indent-paren nil)
+(setq enh-ruby-deep-indent-construct nil)
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
