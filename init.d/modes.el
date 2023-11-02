@@ -28,7 +28,7 @@
 (add-hook 'markdown-mode-hook 'smartparens-mode)
 ;; web-mode
 (require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\html.erb\\'" . web-mode))
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 2)
@@ -56,7 +56,7 @@
 (setq enh-ruby-deep-indent-construct nil)
 ;; yaml-mode
 (require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yml(\\.erb)?\\'" . yaml-mode))
 (add-hook 'yaml-mode-hook
   (lambda ()
     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))

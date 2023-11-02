@@ -3,6 +3,7 @@
 (setq make-backup-files nil)
 (setq initial-scratch-message nil)
 (setq confirm-kill-emacs 'yes-or-no-p)
+(setq visible-bell t)
 (setq-default column-number-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 80)
