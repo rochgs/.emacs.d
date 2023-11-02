@@ -11,7 +11,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'switch-to-buffer)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
-(setq helm-boring-buffer-regexp-list (list (rx bol" *") (rx bol"*helm") (rx bol"*straight-process*"eol) (rx bol"*Messages*"eol) (rx bol"*Flymake log*"eol)))
+(setq helm-boring-buffer-regexp-list (list (rx bol" *") (rx bol"*helm") (rx bol"*straight-process*"eol) (rx bol"*Messages*"eol) (rx bol"*Flymake log*"eol) (rx bol"*RuboCop")))
 ;; Projectile
 (require 'projectile)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
@@ -43,9 +43,11 @@
 ;; rever-mode
 (global-auto-revert-mode)
 ;; rubocop-mode
-(add-hook 'enh-ruby-mode-hook
+(setq rubocop-autocorrect-on-save t)
+(add-hook 'enh-ruby-mode-hook 'rubocop-mode)
+(add-hook 'rubocop-mode
   (lambda ()
-    (local-set-key (kbd "C-c r") 'rubocop-format-current-file))) 
+    (local-set-key (kbd "C-c r") 'rubocop-format-current-file)))
 ;; enh-ruby-mode
 (add-to-list 'auto-mode-alist
   '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
