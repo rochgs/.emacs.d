@@ -18,6 +18,8 @@
 (straight-use-package 'spacemacs-theme)
 (straight-use-package 'smartparens)
 (straight-use-package 'enh-ruby-mode)
+(straight-use-package 'rspec-mode)
+(straight-use-package 'inf-ruby)
 (straight-use-package 'rbenv)
 (straight-use-package 'flymake-ruby)
 (straight-use-package 'rubocop)

@@ -67,3 +67,10 @@
 (lambda ()
     (yafolding-show-all)
     (delete-trailing-whitespace))
+;; rspec-mode
+(setq compilation-scroll-output t)
+(add-hook 'dired-mode-hook 'rspec-dired-mode)
+;; https://github.com/pezra/rspec-mode#debugging
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+;; shell-script
+(setq sh-basic-offset 2)
