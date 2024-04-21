@@ -19,8 +19,9 @@
 ;; which-key
 (which-key-mode 1)
 ;; org-mode
-;; org-mode ovewrittes the default truncate-lines variable
+;; org-mode ovewrites the default truncate-lines variable
 (setq org-startup-truncated nil)
+(setq org-startup-folded t)
 ;; smartparents-mode
 (require 'smartparens-config)
 (add-hook 'enh-ruby-mode-hook 'smartparens-mode)
