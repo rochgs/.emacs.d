@@ -33,7 +33,7 @@
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 2)
-)
+  )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 ;; rbenv
 (require 'rbenv)
@@ -47,23 +47,23 @@
 (setq rubocop-autocorrect-on-save t)
 (add-hook 'enh-ruby-mode-hook 'rubocop-mode)
 (add-hook 'rubocop-mode
-  (lambda ()
-    (local-set-key (kbd "C-c r") 'rubocop-format-current-file)))
+          (lambda ()
+            (local-set-key (kbd "C-c r") 'rubocop-format-current-file)))
 ;; enh-ruby-mode
 (add-to-list 'auto-mode-alist
-  '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
+             '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
 (setq enh-ruby-add-encoding-comment-on-save nil)
 (setq enh-ruby-deep-indent-paren nil)
 (setq enh-ruby-deep-indent-construct nil)
 (add-hook 'enh-ruby-mode-hook
-  (lambda ()
-    (set-fill-column 100)))
+          (lambda ()
+            (set-fill-column 100)))
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml(\\.erb)?\\'" . yaml-mode))
 (add-hook 'yaml-mode-hook
-  (lambda ()
-    (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+          (lambda ()
+            (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 ;; js.mode
 (setq js-indent-level 2)
 ;; yafolding
@@ -71,8 +71,8 @@
           (lambda () (yafolding-mode)))
 ;; https://github.com/zenozeng/yafolding.el/issues/13#issuecomment-234706053
 (lambda ()
-    (yafolding-show-all)
-    (delete-trailing-whitespace))
+  (yafolding-show-all)
+  (delete-trailing-whitespace))
 ;; rspec-mode
 (setq compilation-scroll-output t)
 (add-hook 'dired-mode-hook 'rspec-dired-mode)
