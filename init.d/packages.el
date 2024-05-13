@@ -15,7 +15,7 @@
 (straight-use-package 'which-key)
 (straight-use-package 'helm)
 (straight-use-package 'projectile)
-(straight-use-package 'spacemacs-theme)
+(straight-use-package 'rg)
 (straight-use-package 'smartparens)
 (straight-use-package 'enh-ruby-mode)
 (straight-use-package 'rspec-mode)
