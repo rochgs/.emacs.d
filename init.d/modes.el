@@ -55,6 +55,9 @@
 (setq enh-ruby-add-encoding-comment-on-save nil)
 (setq enh-ruby-deep-indent-paren nil)
 (setq enh-ruby-deep-indent-construct nil)
+(add-hook 'enh-ruby-mode-hook
+  (lambda ()
+    (set-fill-column 100)))
 ;; yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml(\\.erb)?\\'" . yaml-mode))
