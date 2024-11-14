@@ -1,3 +1,5 @@
+;; Line number mode
+(setq line-number-display-limit-width 1000)
 ;; Flyspell
 (require 'flyspell)
 (flyspell-mode +1)
