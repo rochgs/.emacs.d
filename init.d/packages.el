@@ -23,11 +23,3 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yafolding)
 (straight-use-package 'csv-mode)
-
-;; Ruby
-(straight-use-package 'enh-ruby-mode)
-(straight-use-package 'rspec-mode)
-(straight-use-package 'inf-ruby)
-(straight-use-package 'rbenv)
-(straight-use-package 'flymake-ruby)
-(straight-use-package 'rubocop)
