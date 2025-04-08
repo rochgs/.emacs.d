@@ -6,6 +6,7 @@
 (setq-default column-number-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 80)
+
 ;; Indent-region-of-buffer
 (defun indent-buffer ()
   "Indent the currently visited buffer."
@@ -25,6 +26,7 @@
         (whitespace-cleanup)
         (message "Indented buffer.")))))
 (global-set-key (kbd "C-c i") 'indent-region-or-buffer)
+
 ;; Rename file & buffer
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
@@ -40,6 +42,7 @@
           (rename-buffer new-name)
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
+
 ;; Required by GUI when started outside a shell:
 (defun set-exec-path-from-shell-PATH ()
   "Set up Emacs' `exec-path' and PATH environment variable to match

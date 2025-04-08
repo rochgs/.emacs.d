@@ -1,7 +1,3 @@
-;; Workaround for bug in Emacs 26.1. It was fixed in 26.3:
-;; https://www.reddit.com/r/emacs/comments/cdei4p/failed_to_download_gnu_archive_bad_request/
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
 (add-to-list 'load-path "~/.emacs.d/init.d/")
 (load-library "behaviour.el")
 (load-library "packages.el")
