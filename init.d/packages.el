@@ -23,3 +23,7 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yafolding)
 (straight-use-package 'csv-mode)
+
+;; PHP
+(straight-use-package 'php-mode)
+(straight-use-package 'flymake-php)

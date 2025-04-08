@@ -50,3 +50,7 @@
   (delete-trailing-whitespace))
 ;; shell-script
 (setq sh-basic-offset 2)
+
+;; PHP
+(require 'flymake-php)
+(add-hook 'php-mode-hook 'flymake-php-load)
