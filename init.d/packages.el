@@ -27,3 +27,6 @@
 ;; PHP
 (straight-use-package 'php-mode)
 (straight-use-package 'flymake-php)
+
+;; Docker
+(straight-use-package 'dockerfile-mode)
