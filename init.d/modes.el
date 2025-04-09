@@ -5,9 +5,9 @@
 ;; Flyspell
 (require 'flyspell)
 (flyspell-mode +1)
-(dolist (hook '(text-mode-hook))
-  (add-hook hook (lambda () (flyspell-mode 1))))
 (setq flyspell-sort-corrections nil)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 ;; Helm
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
