@@ -1,5 +1,5 @@
 (load-theme 'modus-vivendi t)
-(add-to-list 'default-frame-alist '(font . "JetBrains Mono Slashed-14.5:weight=bold"))
+(add-to-list 'default-frame-alist '(font . "JetBrains Mono Slashed-14.5"))
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1) 
