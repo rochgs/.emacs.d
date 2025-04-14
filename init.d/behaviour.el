@@ -1,4 +1,5 @@
 (show-paren-mode 1)
+(repeat-mode 1)
 (setq inhibit-splash-screen t)
 (setq make-backup-files nil)
 (setq initial-scratch-message nil)
