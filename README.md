@@ -7,10 +7,11 @@ Last test of installation: fresh new Debian 12 system.
 - [Git](https://git-scm.com/).
 - [Emacs](https://www.gnu.org/software/emacs/).
 - [JetBrains Mono Slashed font](https://github.com/sharpjs/JetBrainsMonoSlashed).
-- You need a working version of [Ruby](https://www.ruby-lang.org/) usable from the terminal (i.e., `ruby -v` should work).
 - [ripgrep](https://github.com/BurntSushi/ripgrep) if you want to use the `rg` package for searches.
+- [Node](https://nodejs.org/).
 
 ### Procedure
 
-Just clone the repository contents to `~/.emacs.d/` and start Emacs.
+1. Clone the repository contents to `~/.emacs.d/` and start Emacs.
+2. Follow [the instructions in dape's README](https://github.com/svaante/dape/tree/master?tab=readme-ov-file#php---xdebug) to install the PHP debug adapter..
 

@@ -23,12 +23,12 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yafolding)
 (straight-use-package 'csv-mode)
+(straight-use-package 'dape)
 
 ;; PHP
 (straight-use-package 'php-mode)
 (straight-use-package 'flymake-php)
 (straight-use-package 'php-eldoc)
-
 
 ;; Docker
 (straight-use-package 'dockerfile-mode)
