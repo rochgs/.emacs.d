@@ -29,6 +29,7 @@
 (straight-use-package 'php-mode)
 (straight-use-package 'flymake-php)
 (straight-use-package 'php-eldoc)
+(straight-use-package 'phpunit)
 
 ;; Docker
 (straight-use-package 'dockerfile-mode)

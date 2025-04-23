@@ -52,5 +52,10 @@
 (setq sh-basic-offset 2)
 
 ;; PHP
+;; flymake-php
 (require 'flymake-php)
 (add-hook 'php-mode-hook 'flymake-php-load)
+;; phpunit
+(define-key php-mode-map (kbd "C-c t t") 'phpunit-current-test)
+(define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class)
+(define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project)
