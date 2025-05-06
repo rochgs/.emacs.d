@@ -24,6 +24,8 @@
 (straight-use-package 'yafolding)
 (straight-use-package 'csv-mode)
 (straight-use-package 'dape)
+(straight-use-package 'native-complete)
+(straight-use-package 'magit)
 
 ;; PHP
 (straight-use-package 'php-mode)

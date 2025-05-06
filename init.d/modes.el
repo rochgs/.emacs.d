@@ -50,6 +50,13 @@
   (delete-trailing-whitespace))
 ;; shell-script
 (setq sh-basic-offset 2)
+;; native-complete (emacs-native-shell-complete)
+(add-hook 'shell-mode-hook
+          (lambda ()
+            (add-hook 'completion-at-point-functions 'native-complete-at-point nil t)))
+(with-eval-after-load 'shell
+  (native-complete-setup-bash))
+
 
 ;; PHP
 ;; flymake-php
