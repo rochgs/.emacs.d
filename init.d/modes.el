@@ -28,7 +28,7 @@
 (setq org-startup-folded t)
 ;; smartparents-mode
 (require 'smartparens-config)
-(add-hook 'enh-ruby-mode-hook 'smartparens-mode)
+(add-hook 'php-mode-hook 'smartparens-mode)
 (add-hook 'org-mode-hook 'smartparens-mode)
 (add-hook 'markdown-mode-hook 'smartparens-mode)
 ;; revert-mode
@@ -56,6 +56,9 @@
 (require 'flymake-php)
 (add-hook 'php-mode-hook 'flymake-php-load)
 ;; phpunit
-(define-key php-mode-map (kbd "C-c t t") 'phpunit-current-test)
-(define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class)
-(define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project)
+(eval-after-load 'php-mode
+  '(define-key php-mode-map (kbd "C-c t t") 'phpunit-current-test))
+(eval-after-load 'php-mode
+  '(define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class))
+(eval-after-load 'php-mode
+  '(define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project))
