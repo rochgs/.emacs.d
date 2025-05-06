@@ -9,3 +9,5 @@ eln-cache
 tramp
 eshell/
 projects
+debug-adapters/
+transient/
