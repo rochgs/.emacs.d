@@ -23,6 +23,7 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yafolding)
 (straight-use-package 'csv-mode)
+(straight-use-package 'native-complete)
 
 ;; Ruby
 (straight-use-package 'enh-ruby-mode)
