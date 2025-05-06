@@ -24,6 +24,7 @@
 (straight-use-package 'yafolding)
 (straight-use-package 'csv-mode)
 (straight-use-package 'native-complete)
+(straight-use-package 'magit)
 
 ;; Ruby
 (straight-use-package 'enh-ruby-mode)
