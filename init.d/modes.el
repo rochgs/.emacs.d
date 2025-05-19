@@ -50,6 +50,8 @@
   (delete-trailing-whitespace))
 ;; shell-script
 (setq sh-basic-offset 2)
+;; shell-mode
+(setq comint-prompt-read-only t)
 ;; native-complete (emacs-native-shell-complete)
 (add-hook 'shell-mode-hook
           (lambda ()
@@ -57,8 +59,8 @@
 (with-eval-after-load 'shell
   (native-complete-setup-bash))
 
-
 ;; PHP
+
 ;; flymake-php
 (require 'flymake-php)
 (add-hook 'php-mode-hook 'flymake-php-load)
