@@ -71,3 +71,5 @@
   '(define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class))
 (eval-after-load 'php-mode
   '(define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project))
+;; dape
+(global-set-key (kbd "C-x C-a d") 'dape)
