@@ -35,3 +35,6 @@
 
 ;; Docker
 (straight-use-package 'dockerfile-mode)
+
+;; Work-exclusive
+(straight-use-package 'hcl-mode)

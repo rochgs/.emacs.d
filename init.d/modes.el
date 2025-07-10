@@ -74,3 +74,8 @@
   '(define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project))
 ;; dape
 (global-set-key (kbd "C-x C-a d") 'dape)
+
+;; Work-exclusive
+;; hcl-mode
+(add-to-list 'auto-mode-alist '("\\.tf\\'" . hcl-mode))
+(add-to-list 'auto-mode-alist '("\\.tfvars\\'" . hcl-mode))
