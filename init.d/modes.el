@@ -15,7 +15,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'switch-to-buffer)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
-(setq helm-boring-buffer-regexp-list (list (rx bol" *") (rx bol"*helm") (rx bol"*straight-process*"eol) (rx bol"*Messages*"eol) (rx bol"*Flymake log*"eol) (rx bol"*RuboCop") (rx bol"*Async-native-compile-log*"eol)))
+(setq helm-boring-buffer-regexp-list (list (rx bol" *") (rx bol"*helm") (rx bol"*straight-process*"eol) (rx bol"*Messages*"eol) (rx bol"*Flymake log*"eol) (rx bol"*RuboCop") (rx bol"*Async-native-compile-log*"eol) (rx bol"*iph") (rx bol"*lsp-log*"eol))) 
 (setq helm-buffer-max-length nil)
 ;; Projectile
 (require 'projectile)
@@ -73,9 +73,17 @@
 (eval-after-load 'php-mode
   '(define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project))
 ;; dape
-(global-set-key (kbd "C-x C-a d") 'dape)
+;;(global-set-key (kbd "C-x C-a d") 'dape)
 
 ;; Work-exclusive
 ;; hcl-mode
 (add-to-list 'auto-mode-alist '("\\.tf\\'" . hcl-mode))
 (add-to-list 'auto-mode-alist '("\\.tfvars\\'" . hcl-mode))
+;; lsp-mode
+(setq lsp-keymap-prefix "s-i")
+(require 'lsp-mode)
+(add-hook 'php-mode-hook #'lsp)
+;; dap-mode
+(require 'dap-mode)
+(require 'dap-php)
+(load-library "php-core-debug-dap-mode-template.el")

@@ -23,9 +23,10 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'yafolding)
 (straight-use-package 'csv-mode)
-(straight-use-package 'dape)
 (straight-use-package 'native-complete)
 (straight-use-package 'magit)
+(straight-use-package 'lsp-mode)
+(straight-use-package 'dap-mode)
 
 ;; PHP
 (straight-use-package 'php-mode)
