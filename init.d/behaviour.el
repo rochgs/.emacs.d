@@ -8,6 +8,9 @@
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 80)
 
+;; General keybinding
+(global-set-key (kbd "C-c c") 'save-buffers-kill-emacs)
+
 ;; Multiple dictionaries for ispell/flyspell
 (with-eval-after-load "ispell"
   ;; Configure `LANG`, otherwise ispell.el cannot find a 'default
