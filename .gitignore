@@ -14,3 +14,5 @@ transient/
 .dap-breakpoints
 .lsp-session-v1
 lsp-cache/
+.extension/
+dap-ui-repl-php-history
