@@ -11,3 +11,6 @@ eshell/
 projects
 debug-adapters/
 transient/
+.dap-breakpoints
+.lsp-session-v1
+lsp-cache/
