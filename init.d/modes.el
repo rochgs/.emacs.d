@@ -62,9 +62,6 @@
 
 ;; PHP
 
-;; flymake-php
-(require 'flymake-php)
-(add-hook 'php-mode-hook 'flymake-php-load)
 ;; phpunit
 (eval-after-load 'php-mode
   '(define-key php-mode-map (kbd "C-c t t") 'phpunit-current-test))
@@ -72,18 +69,27 @@
   '(define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class))
 (eval-after-load 'php-mode
   '(define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project))
-;; dape
-;;(global-set-key (kbd "C-x C-a d") 'dape)
 
 ;; Work-exclusive
 ;; hcl-mode
 (add-to-list 'auto-mode-alist '("\\.tf\\'" . hcl-mode))
 (add-to-list 'auto-mode-alist '("\\.tfvars\\'" . hcl-mode))
 ;; lsp-mode
-(setq lsp-keymap-prefix "s-i")
 (require 'lsp-mode)
+(setq lsp-keymap-prefix "s-i")
+(setq gc-cons-threshold 1600000)
+(setq lsp-file-watch-threshold nil)
 (add-hook 'php-mode-hook #'lsp)
+;; lsp-ui-mode
+(setq lsp-ui-sideline-show-diagnostics t)
+(setq lsp-ui-sideline-show-hover nil)
+(setq lsp-ui-sideline-show-code-actions nil)
 ;; dap-mode
 (require 'dap-mode)
 (require 'dap-php)
 (load-library "php-core-debug-dap-mode-template.el")
+(load-library "php-web-debug-dap-mode-template.el")
+;; web-mode
+(add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
+;; company-mode
+(add-hook 'after-init-hook 'global-company-mode)

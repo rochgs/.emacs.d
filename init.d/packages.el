@@ -25,12 +25,9 @@
 (straight-use-package 'csv-mode)
 (straight-use-package 'native-complete)
 (straight-use-package 'magit)
-(straight-use-package 'lsp-mode)
-(straight-use-package 'dap-mode)
 
 ;; PHP
 (straight-use-package 'php-mode)
-(straight-use-package 'flymake-php)
 (straight-use-package 'php-eldoc)
 (straight-use-package 'phpunit)
 
@@ -38,4 +35,10 @@
 (straight-use-package 'dockerfile-mode)
 
 ;; Work-exclusive
+(straight-use-package 'lsp-mode)
+(straight-use-package 'dap-mode)
+(straight-use-package 'lsp-ui)
 (straight-use-package 'hcl-mode)
+(straight-use-package 'company)
+(straight-use-package 'flycheck)
+
