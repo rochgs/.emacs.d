@@ -62,6 +62,8 @@
 
 ;; PHP
 
+;; php-mode
+(add-to-list 'auto-mode-alist '("\\.module\\'" . php-mode))
 ;; phpunit
 (eval-after-load 'php-mode
   '(define-key php-mode-map (kbd "C-c t t") 'phpunit-current-test))
