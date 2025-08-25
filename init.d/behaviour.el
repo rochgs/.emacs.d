@@ -83,3 +83,6 @@ apps are not started from a shell."
     (setq exec-path (split-string path-from-shell path-separator))))
 
 (set-exec-path-from-shell-PATH)
+
+;; Performance
+(setq gc-cons-threshold 80000000)

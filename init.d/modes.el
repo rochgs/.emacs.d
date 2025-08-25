@@ -15,7 +15,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x C-b") 'switch-to-buffer)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
-(setq helm-boring-buffer-regexp-list (list (rx bol" *") (rx bol"*helm") (rx bol"*straight-process*"eol) (rx bol"*Messages*"eol) (rx bol"*Flymake log*"eol) (rx bol"*RuboCop") (rx bol"*Async-native-compile-log*"eol) (rx bol"*iph") (rx bol"*lsp-log*"eol))) 
+(setq helm-boring-buffer-regexp-list (list (rx bol" *") (rx bol"*helm") (rx bol"*straight-process*"eol) (rx bol"*Messages*"eol) (rx bol"*Flymake log*"eol) (rx bol"*RuboCop") (rx bol"*Async-native-compile-log*"eol) (rx bol"*iph") (rx bol"*lsp-log*"eol)))
 (setq helm-buffer-max-length nil)
 ;; Projectile
 (require 'projectile)
@@ -77,19 +77,41 @@
 ;; lsp-mode
 (require 'lsp-mode)
 (setq lsp-keymap-prefix "s-i")
-(setq gc-cons-threshold 1600000)
 (setq lsp-file-watch-threshold nil)
 (add-hook 'php-mode-hook #'lsp)
 ;; lsp-ui-mode
 (setq lsp-ui-sideline-show-diagnostics t)
 (setq lsp-ui-sideline-show-hover nil)
 (setq lsp-ui-sideline-show-code-actions nil)
-;; dap-mode
-(require 'dap-mode)
-(require 'dap-php)
-(load-library "php-core-debug-dap-mode-template.el")
-(load-library "php-web-debug-dap-mode-template.el")
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
 ;; company-mode
 (add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'shell-mode-hook (lambda () (company-mode -1)))
+(add-hook 'eshell-mode-hook (lambda () (company-mode -1)))
+(add-hook 'org-mode-hook (lambda () (company-mode -1)))
+(add-hook 'text-mode-hook (lambda () (company-mode -1)))
+;; dape
+(use-package dape
+  :custom
+  (dape-cwd-function 'projectile-project-root)
+  )
+
+(let* ((xdebug-plist (cdr (assoc 'xdebug dape-configs)))
+       (xdebug-web-plist (copy-sequence xdebug-plist))
+       (xdebug-core-plist (copy-sequence xdebug-plist))
+       (xdebug-web-plist (plist-put (plist-put (plist-put xdebug-web-plist :command-cwd "~/") :prefix-local "/home/rochgs/Code/web/") :prefix-remote "/var/www/html/"))
+       (xdebug-core-plist (plist-put (plist-put (plist-put xdebug-core-plist :command-cwd "~/") :prefix-local "/home/rochgs/Code/core/") :prefix-remote "/var/www/html/"))
+       (dape-configs (append dape-configs `((xdebug-web . ,xdebug-web-plist) (xdebug-core . ,xdebug-core-plist))))))
+
+(let* ((xdebug-plist (cdr (assoc 'xdebug dape-configs)))
+       (xdebug-web-plist (copy-sequence xdebug-plist))
+       (xdebug-core-plist (copy-sequence xdebug-plist)))
+  (setq xdebug-web-plist (plist-put (plist-put (plist-put xdebug-web-plist 'command-cwd "~/")
+                                               'prefix-local "/home/rochgs/Code/web/")
+                                    'prefix-remote "/var/www/html/"))
+  (setq xdebug-core-plist (plist-put (plist-put (plist-put xdebug-core-plist 'command-cwd "~/")
+                                                'prefix-local "/home/rochgs/Code/core/")
+                                     'prefix-remote "/var/www/html/"))
+  (setq dape-configs (append dape-configs `((xdebug-web . ,xdebug-web-plist)
+                                            (xdebug-core . ,xdebug-core-plist)))))

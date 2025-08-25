@@ -36,9 +36,10 @@
 
 ;; Work-exclusive
 (straight-use-package 'lsp-mode)
-(straight-use-package 'dap-mode)
 (straight-use-package 'lsp-ui)
 (straight-use-package 'hcl-mode)
 (straight-use-package 'company)
 (straight-use-package 'flycheck)
+(straight-use-package 'dape)
+
 
