@@ -13,5 +13,5 @@ Last test of installation: fresh new Debian 12 system.
 ### Procedure
 
 1. Clone the repository contents to `~/.emacs.d/` and start Emacs.
-2. Follow [the instructions in dape's README](https://github.com/svaante/dape/tree/master?tab=readme-ov-file#php---xdebug) to install the PHP debug adapter..
+2. Follow [the instructions in dape's README](https://github.com/svaante/dape/tree/master?tab=readme-ov-file#php---xdebug) to install the PHP debug adapter.
 
