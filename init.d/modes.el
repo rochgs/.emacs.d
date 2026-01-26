@@ -103,7 +103,7 @@
        (xdebug-web-plist (copy-sequence xdebug-plist))
        (xdebug-core-plist (copy-sequence xdebug-plist)))
   (setq xdebug-web-plist (plist-put (plist-put (plist-put xdebug-web-plist 'command-cwd "~/")
-                                               'prefix-local "/home/rochgs/Code/web/")
+                                               'prefix-local "/home/rochgs/Code/marketplace/")
                                     'prefix-remote "/var/www/html/"))
   (setq xdebug-core-plist (plist-put (plist-put (plist-put xdebug-core-plist 'command-cwd "~/")
                                                 'prefix-local "/home/rochgs/Code/core/")
