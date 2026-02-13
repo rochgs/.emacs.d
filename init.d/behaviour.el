@@ -10,6 +10,7 @@
 
 ;; General keybinding
 (global-set-key (kbd "C-c c") 'save-buffers-kill-emacs)
+(global-set-key (kbd "M-n") 'forward-whitespace)
 
 ;; Multiple dictionaries for ispell/flyspell
 (with-eval-after-load "ispell"
