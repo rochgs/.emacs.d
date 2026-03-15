@@ -7,6 +7,9 @@
 (setq-default column-number-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 80)
+;; Prevent package.el loading packages prior to their init-file loading
+;; (required by straight.el).
+(setq package-enable-at-startup nil)
 
 ;; General keybinding
 (global-set-key (kbd "C-c c") 'save-buffers-kill-emacs)
