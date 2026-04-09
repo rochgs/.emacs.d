@@ -24,7 +24,8 @@
     "superglobals" "sybase" "sysvmsg" "sysvsem" "sysvshm" "tidy" "tokenizer"
     "wddx" "xml" "xmlreader" "xmlrpc" "xmlwriter" "Zend OPcache" "zip" "zlib"
     "random"])
- '(package-selected-packages '(helm spacemacs-theme)))
+ '(package-selected-packages '(helm spacemacs-theme))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -13,6 +13,7 @@
   (load bootstrap-file nil 'nomessage))
 
 ;; General
+(straight-use-package 'spacemacs-theme)
 (straight-use-package 'which-key)
 (straight-use-package 'helm)
 (straight-use-package 'projectile)
