@@ -26,6 +26,8 @@
 (straight-use-package 'csv-mode)
 (straight-use-package 'native-complete)
 (straight-use-package 'magit)
+(straight-use-package 'coterm)
+(straight-use-package 'eat)
 
 ;; PHP
 (straight-use-package 'php-mode)
@@ -42,5 +44,6 @@
 (straight-use-package 'company)
 (straight-use-package 'flycheck)
 (straight-use-package 'dape)
-
-
+(straight-use-package
+ '(claude-code-ide :type git :host github :repo "manzaltu/claude-code-ide.el"))
+(straight-use-package 'treesit-auto)

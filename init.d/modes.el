@@ -59,6 +59,10 @@
             (add-hook 'completion-at-point-functions 'native-complete-at-point nil t)))
 (with-eval-after-load 'shell
   (native-complete-setup-bash))
+;; coterm
+(coterm-mode)
+(with-eval-after-load 'comint
+  (define-key comint-mode-map (kbd "C-;") #'coterm-char-mode-cycle))
 
 ;; PHP
 
@@ -82,6 +86,8 @@
 (setq lsp-keymap-prefix "s-i")
 (setq lsp-file-watch-threshold nil)
 (add-hook 'php-mode-hook #'lsp)
+(add-hook 'typescript-ts-mode-hook #'lsp)
+(add-hook 'tsx-ts--mode-hook #'lsp)
 ;; lsp-ui-mode
 (setq lsp-ui-sideline-show-diagnostics t)
 (setq lsp-ui-sideline-show-hover nil)
@@ -110,3 +116,22 @@
                                      'prefix-remote "/var/www/html/"))
   (setq dape-configs (append dape-configs `((xdebug-web . ,xdebug-web-plist)
                                             (xdebug-core . ,xdebug-core-plist)))))
+;; claude-code-ide
+(claude-code-ide-emacs-tools-setup)
+(setq claude-code-ide-terminal-backend 'eat)
+;; Keep focus on ediff control window when opening diffs
+(setq claude-code-ide-focus-claude-after-ediff nil)
+;; Hide Claude window during ediff for more screen space
+(setq claude-code-ide-show-claude-window-in-ediff nil)
+(global-set-key (kbd "C-c c") 'claude-code-ide-menu)
+(global-set-key (kbd "C-c s") 'claude-code-ide-toggle-recent)
+;; typescript-ts-mode
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+;; tsx-ts-mode
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+;; treesit-auto
+(require 'treesit-auto)
+(global-treesit-auto-mode)
+(treesit-auto-add-to-auto-mode-alist 'all)
+(setq treesit-auto-install 'prompt)
+

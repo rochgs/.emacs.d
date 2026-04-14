@@ -12,7 +12,7 @@
 (setq package-enable-at-startup nil)
 
 ;; General keybinding
-(global-set-key (kbd "C-c c") 'save-buffers-kill-emacs)
+(global-set-key (kbd "C-c C-q") 'save-buffers-kill-emacs)
 
 ;; Multiple dictionaries for ispell/flyspell
 (with-eval-after-load "ispell"

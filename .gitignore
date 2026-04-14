@@ -16,3 +16,5 @@ transient/
 lsp-cache/
 .extension/
 dap-ui-repl-php-history
+.cache/
+tree-sitter/
