@@ -78,6 +78,7 @@
   '(define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project))
 
 ;; Work-exclusive
+
 ;; hcl-mode
 (add-to-list 'auto-mode-alist '("\\.tf\\'" . hcl-mode))
 (add-to-list 'auto-mode-alist '("\\.tfvars\\'" . hcl-mode))
@@ -88,6 +89,7 @@
 (add-hook 'php-mode-hook #'lsp)
 (add-hook 'typescript-ts-mode-hook #'lsp)
 (add-hook 'tsx-ts--mode-hook #'lsp)
+(add-hook 'svelte-ts-mode-hook #'lsp)
 ;; lsp-ui-mode
 (setq lsp-ui-sideline-show-diagnostics t)
 (setq lsp-ui-sideline-show-hover nil)
@@ -129,9 +131,12 @@
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 ;; tsx-ts-mode
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+;; svelte-ts-mode
+(add-to-list 'auto-mode-alist '("\\.svelte\\'" . svelte-ts-mode))
+(unless (treesit-language-available-p 'svelte)
+  (treesit-install-language-grammar 'svelte))
 ;; treesit-auto
 (require 'treesit-auto)
 (global-treesit-auto-mode)
 (treesit-auto-add-to-auto-mode-alist 'all)
 (setq treesit-auto-install 'prompt)
-

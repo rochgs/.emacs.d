@@ -89,3 +89,7 @@ apps are not started from a shell."
 
 ;; Performance
 (setq gc-cons-threshold 80000000)
+
+;; Treesit grammars
+(setq treesit-language-source-alist
+      '((svelte . ("https://github.com/tree-sitter-grammars/tree-sitter-svelte"))))
