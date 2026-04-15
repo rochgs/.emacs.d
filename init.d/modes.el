@@ -87,8 +87,9 @@
 (setq lsp-keymap-prefix "s-i")
 (setq lsp-file-watch-threshold nil)
 (add-hook 'php-mode-hook #'lsp)
+(add-hook 'php-ts-mode-hook #'lsp)
 (add-hook 'typescript-ts-mode-hook #'lsp)
-(add-hook 'tsx-ts--mode-hook #'lsp)
+(add-hook 'tsx-ts-mode-hook #'lsp)
 (add-hook 'svelte-ts-mode-hook #'lsp)
 ;; lsp-ui-mode
 (setq lsp-ui-sideline-show-diagnostics t)
