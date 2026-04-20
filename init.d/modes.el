@@ -120,7 +120,7 @@
   (setq dape-configs (append dape-configs `((xdebug-web . ,xdebug-web-plist)
                                             (xdebug-core . ,xdebug-core-plist)))))
 (add-to-list 'dape-configs
-             `(svelte-client
+             `(js-debug-frontend-client
                modes (svelte-ts-mode js-ts-mode tsx-ts-mode typescript-ts-mode)
                command "node"
                command-args (,(expand-file-name "~/.emacs.d/debug-adapters/js-debug/src/dapDebugServer.js") :autoport "127.0.0.1")
@@ -133,7 +133,7 @@
                :runtimeExecutable "/usr/bin/chromium"
                :runtimeArgs ["--user-data-dir=/tmp/chrome-debug"]))
 (add-to-list 'dape-configs
-             `(svelte-server
+             `(js-debug-frontend-server
                modes (svelte-ts-mode js-ts-mode tsx-ts-mode typescript-ts-mode)
                command "node"
                command-args (,(expand-file-name "~/.emacs.d/debug-adapters/js-debug/src/dapDebugServer.js") :autoport "127.0.0.1")
@@ -144,6 +144,18 @@
                :address "127.0.0.1"
                :port 9230
                :outputCapture "none"))
+(add-to-list 'dape-configs
+             `(js-debug-core
+               modes (typescript-ts-mode)
+               command "node"
+               command-args (,(expand-file-name "~/.emacs.d/debug-adapters/js-debug/src/dapDebugServer.js") :autoport "127.0.0.1")
+               port :autoport
+               :type "pwa-node"
+               :request "attach"
+               :port 9229
+               :sourceMaps t
+               :remoteRoot "/app"
+               :localRoot ,(expand-file-name "~/Code/new-core")))
 ;; claude-code-ide
 (claude-code-ide-emacs-tools-setup)
 (setq claude-code-ide-terminal-backend 'eat)
