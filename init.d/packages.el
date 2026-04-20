@@ -46,6 +46,5 @@
 (straight-use-package 'dape)
 (straight-use-package
  '(claude-code-ide :type git :host github :repo "manzaltu/claude-code-ide.el"))
-(straight-use-package 'treesit-auto)
 (straight-use-package
  '(svelte-ts-mode :type git :host github :repo "leafOfTree/svelte-ts-mode"))

@@ -13,5 +13,30 @@ Last test of installation: fresh new Debian 12 system.
 ### Procedure
 
 1. Clone the repository contents to `~/.emacs.d/` and start Emacs.
-2. Follow [the instructions in dape's README](https://github.com/svaante/dape/tree/master?tab=readme-ov-file#php---xdebug) to install the PHP debug adapter.
+
+#### dape (debug) specifics:
+
+##### PHP
+
+1. Follow [the instructions in dape's README](https://github.com/svaante/dape/tree/master?tab=readme-ov-file#php---xdebug) to install the PHP DAP adapter.
+
+##### TypeScript
+
+1. Follow [the instructions in dape's README](https://github.com/svaante/dape/tree/master?tab=readme-ov-file#php---xdebug) to install the Javascript - vscode-js-* DAP adapter.
+
+#### treesit grammars:
+
+##### Svelte
+
+```
+M-x treesit-install-language-grammar <RET> svelte
+```
+
+When asked for the location of the source: https://github.com/tree-sitter-grammars/tree-sitter-svelte
+
+##### JSON
+
+```
+M-x treesit-install-language-grammar <RET> json
+```
 

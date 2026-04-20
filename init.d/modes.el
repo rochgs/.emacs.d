@@ -119,6 +119,31 @@
                                      'prefix-remote "/var/www/html/"))
   (setq dape-configs (append dape-configs `((xdebug-web . ,xdebug-web-plist)
                                             (xdebug-core . ,xdebug-core-plist)))))
+(add-to-list 'dape-configs
+             `(svelte-client
+               modes (svelte-ts-mode js-ts-mode tsx-ts-mode typescript-ts-mode)
+               command "node"
+               command-args (,(expand-file-name "~/.emacs.d/debug-adapters/js-debug/src/dapDebugServer.js") :autoport "127.0.0.1")
+               port :autoport
+               :type "pwa-chrome"
+               :request "launch"
+               :name "SvelteKit Chrome"
+               :url "http://localhost:5173"
+               :webRoot dape-cwd
+               :runtimeExecutable "/usr/bin/chromium"
+               :runtimeArgs ["--user-data-dir=/tmp/chrome-debug"]))
+(add-to-list 'dape-configs
+             `(svelte-server
+               modes (svelte-ts-mode js-ts-mode tsx-ts-mode typescript-ts-mode)
+               command "node"
+               command-args (,(expand-file-name "~/.emacs.d/debug-adapters/js-debug/src/dapDebugServer.js") :autoport "127.0.0.1")
+               port :autoport
+               :type "pwa-node"
+               :request "attach"
+               :name "SvelteKit SSR"
+               :address "127.0.0.1"
+               :port 9230
+               :outputCapture "none"))
 ;; claude-code-ide
 (claude-code-ide-emacs-tools-setup)
 (setq claude-code-ide-terminal-backend 'eat)
@@ -128,16 +153,15 @@
 (setq claude-code-ide-show-claude-window-in-ediff nil)
 (global-set-key (kbd "C-c c") 'claude-code-ide-menu)
 (global-set-key (kbd "C-c s") 'claude-code-ide-toggle-recent)
+;; json-ts-mode
+(add-to-list 'auto-mode-alist '("\\.json\\'" . json-ts-mode))
 ;; typescript-ts-mode
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 ;; tsx-ts-mode
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 ;; svelte-ts-mode
 (add-to-list 'auto-mode-alist '("\\.svelte\\'" . svelte-ts-mode))
+(add-to-list 'treesit-language-source-alist
+             '(svelte . ("")))
 (unless (treesit-language-available-p 'svelte)
   (treesit-install-language-grammar 'svelte))
-;; treesit-auto
-(require 'treesit-auto)
-(global-treesit-auto-mode)
-(treesit-auto-add-to-auto-mode-alist 'all)
-(setq treesit-auto-install 'prompt)
