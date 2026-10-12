@@ -1,21 +1,20 @@
-(show-paren-mode 1)
-(repeat-mode 1)
-(setq inhibit-splash-screen t)
+;; Default modes
+(repeat-mode)
+(which-key-mode)
+(column-number-mode)
+(global-auto-revert-mode)
+(fido-vertical-mode)
+
+;; General settings
 (setq make-backup-files nil)
-(setq initial-scratch-message nil)
-(setq visible-bell t)
-(setq-default column-number-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 80)
-;; Prevent package.el loading packages prior to their init-file loading
-;; (required by straight.el).
-(setq package-enable-at-startup nil)
+(setq line-number-display-limit-width 1000)
 
 ;; General keybinding
 (global-set-key (kbd "C-c c") 'save-buffers-kill-emacs)
-(global-set-key (kbd "M-n") 'forward-whitespace)
 
-;; Multiple dictionaries for ispell/flyspell
+;; Spellcheck settings
 (with-eval-after-load "ispell"
   ;; Configure `LANG`, otherwise ispell.el cannot find a 'default
   ;; dictionary' even though multiple dictionaries will be configured
@@ -34,56 +33,12 @@
 ;; silently not use it.
 (unless (file-exists-p ispell-personal-dictionary)
   (write-region "" nil ispell-personal-dictionary))
+;; Flyspell
+(setq flyspell-sort-corrections nil)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
-;; Indent-region-of-buffer
-(defun indent-buffer ()
-  "Indent the currently visited buffer."
-  (interactive)
-  (indent-region (point-min) (point-max)))
-(defun indent-region-or-buffer ()
-  "Indent a region if selected, otherwise the whole buffer."
-  (interactive)
-  (save-excursion
-    (if (region-active-p)
-        (progn
-          (indent-region (region-beginning) (region-end))
-          (whitespace-cleanup-region (region-beginning) (region-end))
-          (message "Indented selected region."))
-      (progn
-        (indent-buffer)
-        (whitespace-cleanup)
-        (message "Indented buffer.")))))
-(global-set-key (kbd "C-c i") 'indent-region-or-buffer)
-
-;; Rename file & buffer
-(defun rename-file-and-buffer (new-name)
-  "Renames both current buffer and file it's visiting to NEW-NAME."
-  (interactive "sNew name: ")
-  (let ((name (buffer-name))
-        (filename (buffer-file-name)))
-    (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
-      (if (get-buffer new-name)
-          (message "A buffer named '%s' already exists!" new-name)
-        (progn
-          (rename-file filename new-name 1)
-          (rename-buffer new-name)
-          (set-visited-file-name new-name)
-          (set-buffer-modified-p nil))))))
-
-;; Required by GUI when started outside a shell:
-(defun set-exec-path-from-shell-PATH ()
-  "Set up Emacs' `exec-path' and PATH environment variable to match
-that used by the user's shell.
-
-This is particularly useful under Mac OS X and macOS, where GUI
-apps are not started from a shell."
-  (interactive)
-  (let ((path-from-shell (replace-regexp-in-string
-                          "[ \t\n]*$" "" (shell-command-to-string
-                                          "$SHELL --login -c 'echo $PATH'"
-                                          ))))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-
-(set-exec-path-from-shell-PATH)
+;; org-mode
+;; org-mode overwrites the default truncate-lines variable
+(setq org-startup-truncated nil)
+(setq org-startup-folded t)

@@ -1,36 +1,30 @@
-;; Set straight.el
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+;; Sources
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/")
+             t)
+(package-initialize)
 
-;; General
-(straight-use-package 'spacemacs-theme)
-(straight-use-package 'which-key)
-(straight-use-package 'helm)
-(straight-use-package 'projectile)
-(straight-use-package 'rg)
-(straight-use-package 'smartparens)
-(straight-use-package 'web-mode)
-(straight-use-package 'markdown-mode)
-(straight-use-package 'yaml-mode)
-(straight-use-package 'yafolding)
-(straight-use-package 'csv-mode)
-(straight-use-package 'native-complete)
-(straight-use-package 'magit)
-
-;; Ruby
-(straight-use-package 'enh-ruby-mode)
-(straight-use-package 'rspec-mode)
-(straight-use-package 'inf-ruby)
-(straight-use-package 'rbenv)
-(straight-use-package 'flymake-ruby)
-(straight-use-package 'rubocop)
+;; Packages
+(use-package coterm
+  :ensure t
+  ;; coterm should be loaded before opening any shell session or it's not loaded
+  ;; properly.
+  :demand t
+  :config (coterm-mode)
+  :bind (:map comint-mode-map
+              ("C-;" . coterm-char-mode-cycle)))
+(use-package dash
+  :ensure t)
+(use-package smartparens
+  :ensure t
+  :after (dash)
+  :hook (prog-mode text-mode markdown-mode)
+  :config (require 'smartparens-config))
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status))
+(use-package markdown-mode
+  :ensure t
+  :mode
+  ("\\.md\\'" . markdown-mode)
+  ("README\\.md\\'" . gfm-mode))
