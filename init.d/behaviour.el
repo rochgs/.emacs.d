@@ -10,6 +10,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default fill-column 80)
 (setq line-number-display-limit-width 1000)
+(setq comint-prompt-read-only t)
 
 ;; General keybinding
 (global-set-key (kbd "C-c c") 'save-buffers-kill-emacs)

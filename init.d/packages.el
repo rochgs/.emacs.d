@@ -22,8 +22,10 @@
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status))
-(use-package markdown-mode
+
+;; Load treesit grammars:
+(load-library "treesit-language-sources.el")
+(use-package markdown-ts-mode
   :ensure t
-  :mode
-  ("\\.md\\'" . markdown-mode)
-  ("README\\.md\\'" . gfm-mode))
+  :mode ("\\.md\\'" . markdown-ts-mode))
+
