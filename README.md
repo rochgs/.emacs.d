@@ -12,6 +12,11 @@ Last test of installation: fresh new Debian 13 system.
     ```
     sudo apt install hunspell hunspell-es
     ```
+- A C compiler:
+
+    ```
+    sudo apt install gcc
+    ```    
 
 ### Procedure
 
