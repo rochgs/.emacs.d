@@ -29,3 +29,8 @@
   :ensure t
   :mode ("\\.md\\'" . markdown-ts-mode))
 
+;; Home
+(load-library "treesit-language-sources.el")
+(use-package gdscript-mode
+  :mode ("\\.gd\\'" . gdscript-ts-mode)
+  :hook (gdscript-ts-mode . eglot-ensure))
